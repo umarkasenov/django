@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>Детальная информация об: <br>{{phone_id.title}}</h1>
+<p><em>{{phone_id.description}}</em></p>
+<img src="{{phone_id.image_1.url}}" alt="" width="200" height="200">
+<img src="{{phone_id.image2}}" alt="" width="200" height="200">
+<p>Цена: {{phone_id.price}}</p>
+<p>Скидка по карте:{{phone_id.discount}}</p>
+    {% if phone_id.gift %}
+        <p>В подарок: {{phone_id.gift}}</p>
+    {% else %}
+        <p>В подарок: Нет ничего</p>
+    {% endif %}
+<p>Дата добавления: {{phone_id.created_at}}</p>
+<p>Дата обнавления: {{phone_id.updated_at}}</p>
+</body>
+</html>

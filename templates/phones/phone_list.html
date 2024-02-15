@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phone List</title>
+</head>
+<body>
+<h1>Список телефонов</h1>
+<ul>
+    {% for i in phone %}
+    <li>
+        <a href="/phone_detail/{{i.id}}/"><img src="{{i.image2}}" alt="" width="400" height="400"></a>
+        <h2>Название: {{i.title}}</h2>
+        <p>Цена: {{i.price}}</p>
+        <p>Скидка: {{i.discount}}</p>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
