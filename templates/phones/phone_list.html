@@ -1,20 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Phone List</title>
-</head>
-<body>
+{% include "phones/header.html" %}
+<br><br><br>
 <h1>Список телефонов</h1>
-<ul>
-    {% for i in phone %}
-    <li>
-        <a href="/phone_detail/{{i.id}}/"><img src="{{i.image2}}" alt="" width="400" height="400"></a>
-        <h2>Название: {{i.title}}</h2>
-        <p>Цена: {{i.price}}</p>
-        <p>Скидка: {{i.discount}}</p>
-    </li>
-    {% endfor %}
-</ul>
-</body>
-</html>
+<button><a href="/create_phone/">Добавить</a></button>
+<div class="row justify-content-between d-flex">
+  {% for i in phone %}
+  <div class="col-sm-3 mb-3">
+    <div class="card">
+      <img src="{{i.image2}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{i.title}}</h5>
+        <p class="card-text">{{i.price}}</p>
+        <p class="card-text">{{i.discount}}</p>
+        <a href="/phone_detail/{{i.id}}/" class="btn btn-primary">Подробная информация</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% include "phones/footer.html" %}

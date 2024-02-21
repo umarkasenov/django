@@ -1,22 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{%include "phones/header.html"%}
+<br><br><br>
+<button><a href="/phone_detail/{{phone_id.id}}/delete/">Удалить</a></button>
+<button><a href="/phone_detail/{{phone_id.id}}/update">Изменить</a></button>
 <h1>Детальная информация об: <br>{{phone_id.title}}</h1>
 <p><em>{{phone_id.description}}</em></p>
 <img src="{{phone_id.image_1.url}}" alt="" width="200" height="200">
 <img src="{{phone_id.image2}}" alt="" width="200" height="200">
 <p>Цена: {{phone_id.price}}</p>
 <p>Скидка по карте:{{phone_id.discount}}</p>
-    {% if phone_id.gift %}
-        <p>В подарок: {{phone_id.gift}}</p>
-    {% else %}
-        <p>В подарок: Нет ничего</p>
-    {% endif %}
+{% if phone_id.gift %}
+<p>В подарок: {{phone_id.gift}}</p>
+{% else %}
+<p>В подарок: Нет ничего</p>
+{% endif %}
 <p>Дата добавления: {{phone_id.created_at}}</p>
 <p>Дата обнавления: {{phone_id.updated_at}}</p>
-</body>
-</html>
+<h2>Коменты</h2>
+<ul>
+    {% for i in phone_id.reviews_phones.all %}
+    <li>
+        <h3>{{i.text}}</h3>
+        <p>{{i.created_at}}</p>
+    </li>
+    {% endfor %}
+</ul>
+{%include "phones/footer.html"%}
